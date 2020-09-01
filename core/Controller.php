@@ -22,4 +22,10 @@ class controller {
 		require 'views/'.$viewName.'.php';
 	}
 
+	public function loadLibrary($lib) {
+		if(file_exists('libraries/'.$lib.'.php')) {
+			include 'libraries/'.$lib.'.php';
+		}
+	}
+
 }

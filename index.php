@@ -1,8 +1,9 @@
 <?php
 session_start();
+require 'vendor/autoload.php';
 require 'config.php';
 
-define('BASE_URL', 'http://localhost/contaazul');
+define('BASE_URL', 'http://localhost/projeto_erp');
 
 spl_autoload_register(function ($class){
     if(strpos($class, 'Controller') > -1) {

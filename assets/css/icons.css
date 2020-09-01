@@ -38,24 +38,112 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-home:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\61";
+}
+.icon-lock-out:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\62";
+}
+.icon-logout:before {
+  vertical-align: middle;
+  content: "\63";
+}
+.icon-user:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\64";
+}
+.icon-login:before {
+  vertical-align: middle;
+  content: "\65";
+}
+.icon-edit:before {
+  vertical-align: middle;
+  content: "\68";
+}
+.icon-add:before {
+  vertical-align: middle;
+  content: "\66";
+}
+.icon-save:before {
+  vertical-align: middle;
+  content: "\67";
+}
+.icon-can:before {
+  vertical-align: middle;
+  content: "\6a";
+}
+.icon-cancel:before {
+  vertical-align: middle;
+  content: "\6b";
+}
+.icon-users:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\6c";
+}
+.icon-search:before {
+  vertical-align: middle;
+  content: "\6d";
+}
+.icon-stock:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\6e";
+}
+.icon-print:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\6f";
+}
+.icon-sales:before {
+  vertical-align: middle;
+  content: "\70";
+}
+.icon-plus:before {
+  vertical-align: middle;
+  content: "\71";
+}
+.icon-minus:before {
+  vertical-align: middle;
+  content: "\69";
+}
+.icon-minus-square:before {
+  vertical-align: middle;
+  content: "\72";
+}
+.icon-del:before {
+  vertical-align: middle;
+  content: "\73";
+}
+.icon-usd:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\74";
+}
+
+.icon-cart:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\75";
+}
+
+.icon-report:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\76";
+}
+.icon-lock:before {
+  vertical-align: middle;
+  font-size: 20px;
+  content: "\78";
+}
+
 .icon-notext:before {
   top: 0;
   margin-right: 0 !important;
 }
-.icon-home:before {
-  content: "\61";
-}
-
-.icon-lock:before {
-  content: "\62";
-}
-.icon-logout:before {
-  content: "\63";
-}
-.icon-user:before {
-  content: "\64";
-}
-.icon-login:before {
-  content: "\65";
-}
-

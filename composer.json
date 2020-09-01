@@ -1,0 +1,6 @@
+{
+    "require": {
+        "nfephp-org/sped-nfe": "dev-master",
+        "mpdf/mpdf": "^8.0"
+    }
+}

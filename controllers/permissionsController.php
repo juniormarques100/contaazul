@@ -25,6 +25,7 @@ class permissionsController extends controller {
         if($u->hasPermission('permission_view')) {
             $permissions = new Permissions();
             $data['permissions_list'] = $permissions->getList($u->getCompany());
+            $data['permissions_groups_list'] = $permissions->getGroupList($u->getCompany());
 
             $this->loadTemplate('permissions', $data);
         } else {
@@ -59,6 +60,36 @@ class permissionsController extends controller {
         }
     }
 
+    public function add_group() {
+        $data = array();
+
+        /*Informações devem serem repetidas nos controllers */
+        $u = new Users();
+        $u->setLogged();
+        $company = new Companies($u->getCompany());
+
+        $data['company_name'] = $company->getName(); 
+        $data['user_email'] = $u->getEmail();
+        /*Fim*/
+
+        if($u->hasPermission('permission_view')) {
+            $permissions = new Permissions();
+
+            if(isset($_POST['name']) && !empty($_POST['name'])) {
+                $pname = addslashes($_POST['name']);
+                $plist = $_POST['permissions'];
+                $permissions->addGroup($pname, $plist, $u->getCompany());
+                header('Location: '.BASE_URL.'/permissions');
+            }
+
+            $data['permissions_list'] = $permissions->getList($u->getCompany());
+
+            $this->loadTemplate('permissions_add_group', $data);
+        } else {
+            header('Location: '.BASE_URL);
+        }
+    }
+
     public function delete($id) {
         $data = array();
 
@@ -76,8 +107,61 @@ class permissionsController extends controller {
 
             $permissions->delete($id);
             header('Location: '.BASE_URL.'/permissions');
+        } else {
+            header('Location: '.BASE_URL);
+        }
+    }
 
-            $this->loadTemplate('permissions_delete', $data);
+    public function delete_group($id) {
+        $data = array();
+
+        /*Informações devem serem repetidas nos controllers */
+        $u = new Users();
+        $u->setLogged();
+        $company = new Companies($u->getCompany());
+
+        $data['company_name'] = $company->getName(); 
+        $data['user_email'] = $u->getEmail();
+        /*Fim*/
+
+        if($u->hasPermission('permission_view')) {
+            $permissions = new Permissions();
+
+            $permissions->deleteGroup($id);
+            header('Location: '.BASE_URL.'/permissions');
+        } else {
+            header('Location: '.BASE_URL);
+        }
+    }
+
+    public function edit_group($id) {
+        $data = array();
+
+        /*Informações devem serem repetidas nos controllers */
+        $u = new Users();
+        $u->setLogged();
+        $company = new Companies($u->getCompany());
+
+        $data['company_name'] = $company->getName(); 
+        $data['user_email'] = $u->getEmail();
+        /*Fim*/
+
+        if($u->hasPermission('permission_view')) {
+            $permissions = new Permissions();
+
+            if(isset($_POST['name']) && !empty($_POST['name'])) {
+                $pname = addslashes($_POST['name']);
+                $plist = $_POST['permissions'];
+
+                $permissions->editGroup($pname, $plist, $id, $u->getCompany());
+
+                header('Location: '.BASE_URL.'/permissions');
+            }
+
+            $data['permissions_list'] = $permissions->getList($u->getCompany());
+            $data['group_info'] = $permissions->getGroup($id, $u->getCompany());
+
+            $this->loadTemplate('permissions_edit_group', $data);
         } else {
             header('Location: '.BASE_URL);
         }
