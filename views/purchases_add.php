@@ -9,7 +9,7 @@
     <label for="date_purchase">Data da Compra</label><br/>
     <input type="date" name="date_purchase" />
     <br/><br/>
-
+    
     <h3>Produtos</h3>
 
     <fieldset>
